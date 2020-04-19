@@ -1,9 +1,9 @@
 FROM ubuntu:latest
 
-RUN apt update -y
-RUN apt upgrade -y
+RUN apt-get update -y
+RUN apt-get upgrade -y
 
-RUN apt install -y python3 python3-pip openjdk-8-jre
+RUN apt-get install -y python3 python3-pip openjdk-8-jre
 
 #install Vizier 
 RUN pip3 install --system vizier-webapi
@@ -29,7 +29,6 @@ EXPOSE 8089
 ENV COURSIER_CACHE=/usr/local/mimir/cache
 
 RUN mkdir /data
-VOLUME ["/data"]
 ENV USER_DATA_DIR=/data/
 
 ENTRYPOINT ["/usr/local/bin/vizier"]
